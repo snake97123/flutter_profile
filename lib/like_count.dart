@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+part 'like_count.g.dart';
 
-class LikeCount extends ChangeNotifier {
-  int _likeCount = 0;
-
-  int get likeCount => _likeCount;
-
-  void incrementLikeCount() {
-    _likeCount++;
-    notifyListeners();
-  }
+@HiveType(typeId: 1)
+class LikeCount {
+  @HiveField(0)
+  int likeCount;
+  LikeCount({required this.likeCount});
 }
